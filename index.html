@@ -26,7 +26,7 @@
                       geometry="primitive: ring; radiusOuter: 0.04;
                           radiusInner: 0.03;"
                       material="color: cyan; shader: flat"
-                      cursor="maxDistance: 30; fuse: true">
+                      cursor="fuse: true">
                 <a-animation begin="click" easing="ease-in" attribute="scale"
                              fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150"></a-animation>
                 <a-animation begin="fusing" easing="ease-in" attribute="scale"
@@ -50,14 +50,14 @@
     </a-entity>
 
     <a-entity position="3.5 1 0" rotation="0 45 0">
-        <a-entity mixin="cube blue">
+        <a-entity mixin="cube blue" cursor-listener>
             <a-animation begin="click" fill="forwards" repeat="1"
                          direction="alternate" attribute="position" from="0 0 0"
                          to="15 0 0" dur="2000"></a-animation>
         </a-entity>
     </a-entity>
 
-    <a-entity position="0 3 0" class="clickable" mixin="cube yellow"
+    <a-entity position="0 3 0" class="clickable" mixin="cube yellow" cursor-listener
               rotation="0 45 0" scale=".5 .5 .5"></a-entity>
 
 
@@ -76,7 +76,7 @@
 <script>
     AFRAME.registerComponent('cursor-listener', {
         init: function() {
-            var COLORS = ['red', 'green', 'blue'];
+            var COLORS = ['red', 'green', 'blue', 'yellow'];
             this.el.addEventListener('click', function() {
                 var randomIndex = Math.floor(Math.random() * COLORS.length);
                 this.setAttribute('material', 'color', COLORS[randomIndex]);
