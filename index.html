@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Hello, World</title>
     <meta name="description" content="Hello, World! - A-Frame">
     <script src="https://aframe.io/releases/0.3.2/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-entity geometry="primitive: cylinder" material="shader: standard; color: blue; opacity: 0.5"></a-entity>
+</head>
+<body>
+<a-scene>
+    <a-assets>
+        <img id="sky" src="img/sky.jpg">
+    </a-assets>
 
-      <a-sphere position="0 0 0" radius="0.01" color="#EE0000"></a-sphere>
+    <a-entity geometry="primitive: box; height: 1; width: 1; depth: 0.01"
+              position="1 1 0"
+              material="shader: standard; color: blue; opacity: 0.5"></a-entity>
 
-      <a-sky src="img/room.png"></a-sky>
-      <a-light type="directional" color="#fff" intensity="0.4" position="-1 2 1"></a-light>
-      <a-light type="ambient" color="#fff"></a-light>
-    </a-scene>
-  </body>
+    <a-sphere position="0 0 0" radius="0.01" color="#EE0000"></a-sphere>
+
+    <a-sky src="#sky"></a-sky>
+    <!--<a-light type="directional" color="#fff" intensity="0.4" position="-1 2 1"></a-light>-->
+    <!--<a-light type="ambient" color="#fff"></a-light>-->
+</a-scene>
+</body>
 </html>
